@@ -15,8 +15,6 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 Language: pt_BR
 LazyData: true
-Suggests: 
-    roxygen2LazyData: true
 Depends: R (>= 2.10)
 ByteCompile: true 
 Imports:
