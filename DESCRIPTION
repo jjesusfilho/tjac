@@ -1,22 +1,60 @@
 Package: tjac
-Title: What the Package Does (One Line, Title Case)
 Version: 0.0.0.9000
+Date: 2019-09-02
+Title: Coleta e organização de dados do Tribunal de Justiça do Acre
+Description: Funções para baixar metadados das decisõeses judiciais, baixar as
+    decisões mesmas de primeira e de segunda instância do TJAC e organizar esses
+    dados.
 Authors@R: 
     person(given = "Jose",
            family = "de Jesus Filho",
            role = c("aut", "cre"),
            email = "jose@consudata.com.br",
            comment = c(ORCID = "https://orcid.org/0000-0001-7415-7383"))
-Description: What the package does (one paragraph).
 License: MIT + file LICENSE
 Encoding: UTF-8
 Language: pt_BR
 LazyData: true
-usethis.full_name: Jose de Jesus Filho
-usethis.protocol: ssh
 Suggests: 
-    roxygen2 (>= 6.1.1)
-Imports: 
+    roxygen2LazyData: true
+Depends: R (>= 2.10)
+ByteCompile: true 
+Imports:
+    xml2,
+    httr,
+    stringi,
+    stringr,
+    purrr,
+    dplyr,
+    tibble,
+    progress,
+    magrittr,
+    rvest,
+    lubridate,
     rlang (>= 0.1.2),
-    magrittr (>= 1.5)
+    janitor,
+    abjutils,
+    tidyr,
+    listenv,
+    fs,
+    stats,
+    furrr,
+    future,
+    pdftools,
+    zoo,
+    readr,
+    usethis,
+    askpass,
+    ggplot2,
+    caret,
+    dbx,
+    rsample
 RoxygenNote: 6.1.1
+URL: https://github.com/jjesusfilho/tjac
+BugReports: https://github.com/jjesusfilho/tjac/issues
+Suggests: 
+    roxygen2,
+    knitr,
+    rmarkdown,
+    testthat (>= 2.1.0)
+VignetteBuilder: knitr
