@@ -1,0 +1,40 @@
+#' Extrai a movimentação processual de primeira e de segunda instância
+#'
+#' @param arquivos Se NULL, usar diretório
+#' @param diretorio Diretorio  onde se encontram os htmls
+#'
+#' @return tibble com a movimentação processual.
+#' @export
+#' @examples
+#' \dontrun{
+#' andamento_cposg <- ler_movimentacao_cposg()
+#' andamento_cpopg <- ler_movimentacao_cpopg()
+#' }
+#'
+ler_movimentacao_cpopg_tjac <-  function(arquivos = NULL, diretorio = ".") {
+
+  if (is.null(arquivos)){
+  arquivos <- list.files(
+    path = diretorio, pattern = ".html",
+    full.names = TRUE
+  )
+}
+
+  purrr::map_dfr(arquivos,  purrr::possibly(purrrogress::with_progress(~{
+
+    processo <- stringr::str_extract(.x, "\\d{20}")
+
+    texto <- xml2::read_html(.x) %>%
+      xml2::xml_find_first(xpath = "//table/tbody[@id='tabelaTodasMovimentacoes']")
+
+
+    data <- xml2::xml_find_all(texto, ".//td[@width='120']") %>%
+      xml2::xml_text(trim = TRUE)
+
+    mov <- xml2::xml_find_all(texto, ".//td[@style='vertical-align: top; padding-bottom: 5px']") %>%
+      xml2::xml_text(trim = TRUE)
+
+
+    tibble::tibble(processo = processo, data = data, movimentacao = mov)
+  }), otherwise = NULL))
+}
