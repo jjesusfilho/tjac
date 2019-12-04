@@ -1,3 +1,11 @@
+#' Autenticar
+#'
+#' @param cpf cpf
+#' @param senha senha
+#'
+#' @return NULL
+#' @export
+#'
 autenticar_tjac <- function(cpf = NULL, senha = NULL){
 
   url<-"https://esaj.tjac.jus.br/sajcas/login?service=https%3A%2F%2Fesaj.tjac.jus.br%2Fesaj%2Fj_spring_cas_security_check"
@@ -26,4 +34,5 @@ body <-
 url2<-"https://esaj.tjac.jus.br/sajcas/login?service=https%3A%2F%2Fesaj.tjac.jus.br%2Fesaj%2Fj_spring_cas_security_check"
 
 httr::POST(url2,body=body,encode="form")
+return(NULL)
 }

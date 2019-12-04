@@ -41,7 +41,7 @@ Imports:
     usethis,
     rsample,
     purrrogress
-RoxygenNote: 7.0.0
+RoxygenNote: 7.0.1
 URL: https://github.com/jjesusfilho/tjac
 BugReports: https://github.com/jjesusfilho/tjac/issues
 Suggests: 

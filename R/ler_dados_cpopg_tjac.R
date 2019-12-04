@@ -1,3 +1,11 @@
+#' lê dados do cpopg
+#'
+#' @param arquivos Caminho dos arquivos
+#' @param diretorio Se arquivos = NULL, informar diretório
+#'
+#' @return tibble
+#' @export
+#'
 ler_dados_cpopg_tjac <- function(arquivos = NULL, diretorio = "."){
 
   if (is.null(arquivos)){
