@@ -31,7 +31,7 @@ ler_dados_cpopg_tjac <- function(arquivos = NULL, diretorio = "."){
       xml2::xml_text() %>%
       stringr::str_squish()
 
-     tibble(proc = processo, variavel = variavel, valor = valor) %>%
+     tibble::tibble(proc = processo, variavel = variavel, valor = valor) %>%
       dplyr::group_by_at(dplyr::vars(-valor)) %>%
       dplyr::mutate(row_id = 1:dplyr::n()) %>%
       dplyr::ungroup() %>%

@@ -7,7 +7,7 @@
 #' @return data.frame limpo e organizado
 #' @export
 #'
-organizar_dados_cpopg <- function(df, excluir_assunto = "", excluir_classe = "") {
+organizar_dados_cpopg_tjac <- function(df, excluir_assunto = "", excluir_classe = "") {
   df <- df %>%
     janitor::clean_names()
 
